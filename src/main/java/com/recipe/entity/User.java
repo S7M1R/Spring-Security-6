@@ -1,5 +1,6 @@
 package com.recipe.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -18,6 +19,7 @@ public class User implements UserDetails {
     private String fullName;
     @Column(unique = true)
     private String userName;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     @Override
